@@ -1,57 +1,43 @@
-<div class="main-div">
-  <mat-card>
-    <img
-      mat-card-image
-      src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"
-      style="max-width: 50vw; max-height: 50vh"
-    />
-    <mat-card-title>Name : Pikacho</mat-card-title>
-    <mat-card-content>
-      <mat-list>
-        <mat-list-item> Height : 6 feet </mat-list-item>
-        <mat-list-item> Weight : 80 kg </mat-list-item>
-        <mat-accordion>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title> Abilities </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-list>
-              <mat-list-item> Thunderbolt </mat-list-item>
-              <mat-list-item> Kick </mat-list-item>
-            </mat-list>
-          </mat-expansion-panel>
-        </mat-accordion>
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
-</div>
-<div class="main-div">
-  <mat-card>
-    <img
-      mat-card-image
-      src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"
-      style="max-width: 50vw; max-height: 50vh"
-    />
-    <mat-card-title>Name : Pikacho</mat-card-title>
-    <mat-card-content>
-      <mat-list>
-        <mat-list-item> Height : 6 feet </mat-list-item>
-        <mat-list-item> Weight : 80 kg </mat-list-item>
-        <mat-accordion>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title> Abilities </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-list>
-              <mat-list-item> Thunderbolt </mat-list-item>
-              <mat-list-item> Kick </mat-list-item>
-            </mat-list>
-          </mat-expansion-panel>
-        </mat-accordion>
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
-</div>
+<mat-grid-list
+  [cols]="breakpoint"
+  rowHeight="4:5"
+  (window:resize)="onResize($event)"
+>
+  <mat-grid-tile *ngFor="let product of pagedList">
+    <mat-card>
+      <img
+        mat-card-image
+        src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"
+        style="max-width: 50vw; max-height: 50vh"
+      />
+      <mat-card-title>Name : Pikacho</mat-card-title>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item> Height : 6 feet </mat-list-item>
+          <mat-list-item> Weight : 80 kg </mat-list-item>
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title> Abilities </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-list>
+                <mat-list-item> Thunderbolt </mat-list-item>
+                <mat-list-item> Kick </mat-list-item>
+              </mat-list>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<mat-paginator
+  [length]="length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="pageEvent = OnPageChange($event)"
+>
+</mat-paginator>
 <!-- Copyright 2021 Google LLC. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that
     can be found in the LICENSE file at http://angular.io/license -->
